@@ -77,3 +77,33 @@
 - *Jaringan 11.11.11.0/24:* Menghubungkan R1 KBJ dan R2 KCR
 - *Jaringan 14.14.14.0/24:* Menghubungkan R1 KBJ dan R2 KHI
 - *Jaringan 17.17.17.0/24:* Menghubungkan R2 KCR dan R3 KHI
+
+- First Steps
+Matikan Firewall seperti Windows Defender atau Antivirus lainnya
+Sambungkan Laptop dengan MikroTik menggunakan kabel LAN
+Buka WinBox → Neighbors → Cari yang MikroTik → Connect
+- Static (Manual)
+1. Dalam WinBox → IP → Addresses
+2. Tambahkan IP Address baru → Contohnya 192.168.10.1/24 → Sesuaikan interface dengan ether dari sambungan kabel LAN → Apply → Ok
+3. Buka Control Panel untuk mengatur IP Laptop
+4. Control Panel → Network and Internet → Network and Sharing Center → Ethernet → Properties
+5. Ubah IPv4 dengan double click → Use the following IP Address → Isi dengan 192.168.10.2 (2 karena 1 sudah digunakan MikroTik) → Tab untuk kolom yang lain → Ok
+6. Lakukan Ping terhadap IP Laptop dalam Terminal WinBox
+- DHCP (Otomatis)
+1. Dalam WinBox → IP → Addresses
+2. Tambahkan IP Address baru → Contohnya 192.168.10.1/24 → Sesuaikan interface dengan ether dari sambungan kabel LAN → Apply → Ok
+3. Buka Control Panel untuk mengatur IP Laptop
+4. Control Panel → Network and Internet → Network and Sharing Center → Ethernet → Properties
+5. Ubah IPv4 dengan double click → Obtain an IP Address automatically → Ok
+6. Dalam WinBox → IP → DHCP Server
+7. Tambahkan DHCP dengan DHCP Setup → Sesuaikan interface dengan ether yang digunakan → Klik Next sampai selesai
+8. Buka bagian Leases dalam DHCP Server → Lihat IP dalam bagian Active Addresses
+9. Lakukan Ping terhadap IP Address yang ada dalam Leases di Terminal WinBox
+- Bridge
+1. Dalam WinBox → Bridge
+2. Tambahkan Bridge baru → Apply → Ok
+3. Tambahkan Bridge Port → Sesuaikan interface dengan ether yang digunakan → Sesuaikan Bridge dengan Bridge yang sudah dibuat → Apply → Ok
+4. Tambahkan IP Address → Ubah interface dengan Bridge yang sudah dibuat → Apply → Ok
+5. Tambahkan DHCP dengan DHCP Setup → Sesuaikan interface dengan Bridge yang sudah dibuat → Klik Next → Pada bagian DNS Servers ubah menjadi 8.8.8.8 → Klik Next sampai selesai
+6. Buka Command Prompt → ipconfig → Lihat IPv4 Address → Lakukan Ping terhadap sesama Laptop (Laptop A melakukan Ping terhadap IP Laptop B dan sebaliknya)
+7. Buka XAMPP dan nyalakan → Salin IP Address Laptop satu sama lain untuk melihat web XAMPP jika sudah tersambung
