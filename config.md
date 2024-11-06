@@ -1,3 +1,42 @@
+## Kontributor
+- **Nama**: Hafidz Azam Bishiddqi
+- **NIM**: 20210801262
+- **Mata Kuliah**: Jaringan Komputer Lanjut (UTS)
+
+## Gambaran Umum Topologi Jaringan
+
+- **Setiap Kampus**: Menggunakan topologi bintang.
+  - Semua komputer di lab terhubung ke switch pusat.
+  - Switch terhubung ke router, yang menyediakan akses internet dan konektivitas antar kampus.
+
+- **Konektivitas Antar Kampus**: Dicapai melalui VPN (Virtual Private Network) atau MPLS (Multiprotocol Label Switching).
+
+## Langkah-Langkah untuk Menghubungkan Antar Kampus
+
+### 1. **Menyusun Jaringan Lokal di Setiap Kampus**
+   - Sambungkan semua komputer di setiap lab ke switch pusat.
+   - Hubungkan switch ke router.
+   - Konfigurasikan router untuk menyediakan akses internet bagi setiap kampus.
+
+### 2. **Membangun Konektivitas Antar Kampus**
+   - **Pengaturan VPN**:
+     - Konfigurasikan gateway VPN di setiap router kampus.
+     - Atur tunnel VPN antara router di tiga kampus.
+     - Pastikan enkripsi untuk transmisi data yang aman.
+   - **Pilihan MPLS**:
+     - Gunakan layanan MPLS yang disediakan oleh ISP.
+     - Konfigurasikan router MPLS untuk memprioritaskan lalu lintas dan memastikan komunikasi antar kampus yang efisien.
+
+### 3. **Layanan Terpusat**
+   - Tempatkan layanan penting (seperti database, aplikasi) di server pusat di kampus utama (Kampus 1).
+   - Konfigurasikan akses ke server ini untuk kampus lain melalui VPN/MPLS.
+
+### 4. **Manajemen dan Pemantauan Jaringan**
+   - Implementasikan alat pemantauan jaringan (misalnya, Nagios, Zabbix) untuk mengelola dan memantau kesehatan jaringan.
+   - Pasang firewall untuk mengamankan jaringan di setiap kampus.
+   - Gunakan load balancer jika diperlukan untuk mendistribusikan lalu lintas dan menghindari kemacetan.
+
+
 # Konfigurasi Topologi Jaringan Menggunakan RIP
 
 ## Penjelasan Topologi
@@ -33,10 +72,3 @@
 - *Jaringan 11.11.11.0/24:* Menghubungkan R1 KBJ dan R2 KCR
 - *Jaringan 14.14.14.0/24:* Menghubungkan R1 KBJ dan R2 KHI
 - *Jaringan 17.17.17.0/24:* Menghubungkan R2 KCR dan R3 KHI
-
-## Kontributor
-- **Nama**: Hafidz Azam Bishiddqi
-- **NIM**: 20210801262
-- **Mata Kuliah**: Jaringan Komputer Lanjut (UTS)
-
-
