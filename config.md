@@ -80,31 +80,58 @@
 ##
 
 - First Steps
-Matikan Firewall seperti Windows Defender atau Antivirus lainnya
+Matikan **Firewall** seperti Windows Defender atau Antivirus lainnya
 Sambungkan Laptop dengan MikroTik menggunakan kabel LAN
 Buka WinBox → Neighbors → Cari yang MikroTik → Connect
 - Static (Manual)
-1. Dalam WinBox → IP → Addresses
-2. Tambahkan IP Address baru → Contohnya 192.168.10.1/24 → Sesuaikan interface dengan ether dari sambungan kabel LAN → Apply → Ok
-3. Buka Control Panel untuk mengatur IP Laptop
-4. Control Panel → Network and Internet → Network and Sharing Center → Ethernet → Properties
-5. Ubah IPv4 dengan double click → Use the following IP Address → Isi dengan 192.168.10.2 (2 karena 1 sudah digunakan MikroTik) → Tab untuk kolom yang lain → Ok
-6. Lakukan Ping terhadap IP Laptop dalam Terminal WinBox
+1. Dalam **WinBox → IP → Addresses**
+2. Tambahkan **IP Address baru → 192.168.10.1/24 → Sesuaikan interface dengan ether dari sambungan kabel LAN → Apply → Ok**
+3. Buka **Control Panel** untuk mengatur IP Laptop
+4. **Control Panel → Network and Internet → Network and Sharing Center → Ethernet → Properties**
+5. Ubah **IPv4 dengan double click → Use the following IP Address → Isi dengan 192.168.10.2 (2 karena 1 sudah digunakan MikroTik) → Tab untuk kolom yang lain → Ok**
+6. Lakukan **Ping terhadap IP Laptop dalam Terminal WinBox**
 - DHCP (Otomatis)
-1. Dalam WinBox → IP → Addresses
-2. Tambahkan IP Address baru → Contohnya 192.168.10.1/24 → Sesuaikan interface dengan ether dari sambungan kabel LAN → Apply → Ok
-3. Buka Control Panel untuk mengatur IP Laptop
-4. Control Panel → Network and Internet → Network and Sharing Center → Ethernet → Properties
-5. Ubah IPv4 dengan double click → Obtain an IP Address automatically → Ok
-6. Dalam WinBox → IP → DHCP Server
-7. Tambahkan DHCP dengan DHCP Setup → Sesuaikan interface dengan ether yang digunakan → Klik Next sampai selesai
-8. Buka bagian Leases dalam DHCP Server → Lihat IP dalam bagian Active Addresses
-9. Lakukan Ping terhadap IP Address yang ada dalam Leases di Terminal WinBox
+1. Dalam **WinBox → IP → Addresses**
+2. Tambahkan **IP Address baru → Contohnya 192.168.10.1/24 → Sesuaikan interface dengan ether dari sambungan kabel LAN → Apply → Ok**
+3. Buka **Control Panel** untuk mengatur IP Laptop
+4. **Control Panel → Network and Internet → Network and Sharing Center → Ethernet → Properties**
+5. **Ubah IPv4 dengan double click → Obtain an IP Address automatically → Ok**
+6. Dalam **WinBox → IP → DHCP Server**
+7. Tambahkan DHCP dengan **DHCP Setup → Sesuaikan interface dengan ether yang digunakan → Klik Next sampai selesai**
+8. Buka bagian Leases dalam **DHCP Server → Lihat IP dalam bagian Active Addresses**
+9. Lakukan **Ping terhadap IP Address yang ada dalam Leases di Terminal WinBox**
 - Bridge
 1. Dalam WinBox → Bridge
-2. Tambahkan Bridge baru → Apply → Ok
-3. Tambahkan Bridge Port → Sesuaikan interface dengan ether yang digunakan → Sesuaikan Bridge dengan Bridge yang sudah dibuat → Apply → Ok
-4. Tambahkan IP Address → Ubah interface dengan Bridge yang sudah dibuat → Apply → Ok
-5. Tambahkan DHCP dengan DHCP Setup → Sesuaikan interface dengan Bridge yang sudah dibuat → Klik Next → Pada bagian DNS Servers ubah menjadi 8.8.8.8 → Klik Next sampai selesai
-6. Buka Command Prompt → ipconfig → Lihat IPv4 Address → Lakukan Ping terhadap sesama Laptop (Laptop A melakukan Ping terhadap IP Laptop B dan sebaliknya)
-7. Buka XAMPP dan nyalakan → Salin IP Address Laptop satu sama lain untuk melihat web XAMPP jika sudah tersambung
+2. Tambahkan **Bridge baru → Apply → Ok**
+3. Tambahkan **Bridge Port → Sesuaikan interface dengan ether yang digunakan → Sesuaikan Bridge dengan Bridge yang sudah dibuat → Apply → Ok**
+4. Tambahkan **IP Address → Ubah interface dengan Bridge yang sudah dibuat → Apply → Ok**
+5. Tambahkan **DHCP dengan DHCP Setup → Sesuaikan interface dengan Bridge yang sudah dibuat → Klik Next → Pada bagian DNS Servers ubah menjadi 8.8.8.8 → Klik Next sampai selesai**
+6. Buka **Command Prompt → ipconfig → Lihat IPv4 Address → Lakukan Ping terhadap sesama Laptop (Laptop A melakukan Ping terhadap IP Laptop B dan sebaliknya)**
+7. Buka **XAMPP dan nyalakan → Salin IP Address Laptop satu sama lain untuk melihat web XAMPP jika sudah tersambung**
+
+- Mengaktifkan RIP pada Interface yang Dipilih
+
+1. Pilih **IP** → **Routing** → **RIP**.
+2. Buka tab **Interfaces**.
+3. Klik **Add** (+) untuk menambahkan interface yang akan menggunakan RIP.
+4. Pada kolom **Interface**, pilih interface atau **bridge** yang ingin Anda gunakan untuk RIP.
+5. Atur **Receive** dan **Send** ke `Yes` untuk mengizinkan router menerima dan mengirim informasi routing.
+6. Klik **OK** untuk menyimpan.
+
+- Atur Parameter RIP (Opsional)
+
+1. Buka tab **Settings** di menu **RIP**.
+2. Konfigurasikan versi RIP (v1 atau v2) dan timer, jika diperlukan.
+
+- Verifikasi Pengaturan
+
+1. Buka tab **Routes** di dalam **RIP** untuk melihat rute yang diterima dari router lain di jaringan.
+2. Pastikan pengaturan RIP sudah berfungsi dengan baik.
+
+- Testing dan Troubleshooting
+
+1. **Testing Konektivitas**: Coba ping IP Address pada router lain di jaringan untuk memverifikasi konektivitas.
+2. **Troubleshooting DHCP**:
+   - Jika klien tidak mendapatkan IP, periksa **IP Pool** dan **interface** DHCP.
+3. **Troubleshooting RIP**:
+   - Jika tidak ada rute RIP, pastikan **Receive** dan **Send** diaktifkan pada semua interface yang terhubung ke router lain.
