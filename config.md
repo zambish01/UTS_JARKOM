@@ -9,7 +9,7 @@
   - Semua komputer di lab terhubung ke switch pusat.
   - Switch terhubung ke router, yang menyediakan akses internet dan konektivitas antar kampus.
 
-- **Konektivitas Antar Kampus**: Dicapai melalui VPN (Virtual Private Network) atau MPLS (Multiprotocol Label Switching).
+- **Konektivitas Antar Kampus**: Dicapai melalui MPLS (Multiprotocol Label Switching).
 
 ## Langkah-Langkah untuk Menghubungkan Antar Kampus
 
@@ -19,27 +19,32 @@
    - Konfigurasikan router untuk menyediakan akses internet bagi setiap kampus.
 
 ### 2. **Membangun Konektivitas Antar Kampus**
-   - **Pengaturan VPN**:
-     - Konfigurasikan gateway VPN di setiap router kampus.
+   - **Pengaturan **:
+     - Konfigurasikan gateway di setiap router kampus.
      - Atur tunnel VPN antara router di tiga kampus.
      - Pastikan enkripsi untuk transmisi data yang aman.
    - **Pilihan MPLS**:
      - Gunakan layanan MPLS yang disediakan oleh ISP.
      - Konfigurasikan router MPLS untuk memprioritaskan lalu lintas dan memastikan komunikasi antar kampus yang efisien.
 
-### 3. **Layanan Terpusat**
+### 3. **Central Server**
    - Tempatkan layanan penting (seperti database, aplikasi) di server pusat di kampus utama (Kampus 1).
-   - Konfigurasikan akses ke server ini untuk kampus lain melalui VPN/MPLS.
+   - Konfigurasikan akses ke server ini untuk kampus lain melalui MPLS.
 
 ### 4. **Manajemen dan Pemantauan Jaringan**
    - Implementasikan alat pemantauan jaringan (misalnya, Nagios, Zabbix) untuk mengelola dan memantau kesehatan jaringan.
    - Pasang firewall untuk mengamankan jaringan di setiap kampus.
    - Gunakan load balancer jika diperlukan untuk mendistribusikan lalu lintas dan menghindari kemacetan.
 
+![topologi jaringan](https://github.com/user-attachments/assets/4286eb40-0787-49dc-be05-6c061048599a)
+
 
 # Konfigurasi Topologi Jaringan Menggunakan RIP
 
 ## Penjelasan Topologi
+
+![Topologi Jarkom](https://github.com/user-attachments/assets/f13693d6-d857-4e0e-977a-96fdcc954a82)
+
 
 ### Komponen Utama
 
